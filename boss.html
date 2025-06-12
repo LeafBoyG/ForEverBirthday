@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss Fight!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Press the correct sequence before it hits the bottom!</h1>
+
+        <div class="health-bars">
+            <p>Boss Health</p>
+            <div id="bossHealthBar"><div id="bossHealth"></div></div>
+            <p>Player Health</p>
+            <div id="playerHealthBar"><div id="playerHealth"></div></div>
+        </div>
+
+        <div class="battle-area">
+            <img id="playerImage" src="doneeversthing.png" alt="Player">
+            <img id="bossImage" src="Zombie.png" alt="Boss">
+        </div>
+
+        <p id="sequence"></p>
+        <p id="message">Type fast to survive!</p>
+
+        <div id="victoryScreen" class="hidden">
+            <h2>You defeated the boss!</h2>
+            <button id="restartButton">Play Again</button>
+        </div>
+    </div>
+    <script src="boss.js"></script>
+</body>
+</html>

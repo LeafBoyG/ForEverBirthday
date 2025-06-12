@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#movingImage {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+    color:aqua
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#bossImage {
+    width: 200px;
+    height: auto;
+    margin: 20px;
+}
+
+#sequence {
+    font-size: 2em;
+    font-weight: bold;
+    background-color: #ff3333;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#message {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.health-bars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#bossHealthBar, #playerHealthBar {
+    width: 200px;
+    height: 20px;
+    background-color: red;
+    border: 2px solid white;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#bossHealth, #playerHealth {
+    width: 100%;
+    height: 100%;
+    background-color: limegreen;
+}
+.hidden {
+    display: none;
+}
+
+#victoryScreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: gold;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px white;
+}
+.battle-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#playerImage {
+    width: 150px;
+    transition: transform 0.3s;
+}
+
+#bossImage {
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.attack {
+    transform: translateX(50px);
+}
+
+.boss-hit {
+    transform: scale(0.9);
+}
