@@ -11,23 +11,38 @@
         <h1>Press the correct sequence before it hits the bottom!</h1>
 
         <div class="health-bars">
-            <p>Boss Health</p>
-            <div id="bossHealthBar"><div id="bossHealth"></div></div>
-            <p>Player Health</p>
-            <div id="playerHealthBar"><div id="playerHealth"></div></div>
+            <div class="health-container">
+                <span class="health-text">Boss Health</span>
+                <div id="bossHealthBar"><div id="bossHealth"></div></div>
+            </div>
+            <div class="health-container">
+                <span class="health-text">Player Health</span>
+                <div id="playerHealthBar"><div id="playerHealth"></div></div>
+            </div>
         </div>
+ <div id="tryAgainScreen" class="hidden">
+    <h2 id="tryMessage"></h2>
+    <button id="retryBoss">Retry Boss Fight</button>
+    <button id="continueGame">Continue</button>
+    <button id="playAgain">Play Again</button>
+</div>
+
 
         <div class="battle-area">
-            <img id="playerImage" src="doneeversthing.png" alt="Player">
-            <img id="bossImage" src="Zombie.png" alt="Boss">
+            <img id="playerImage" src="player.png" alt="Player">
+            <img id="bossImage" src="boss.png" alt="Boss">
         </div>
 
-        <p id="sequence"></p>
+        <p id="sequence">Sequence: ???</p>
+        <p id="playerTyped">Typed: </p>
         <p id="message">Type fast to survive!</p>
 
-        <div id="victoryScreen" class="hidden">
-            <h2>You defeated the boss!</h2>
-            <button id="restartButton">Play Again</button>
+        <div id="virtualKeyboard">
+            <button class="key" data-key="w">W</button>
+            <button class="key" data-key="a">A</button>
+            <button class="key" data-key="s">S</button>
+            <button class="key" data-key="d">D</button>
+            <button class="key remove-key" id="removeKey">–</button>
         </div>
     </div>
     <script src="boss.js"></script>

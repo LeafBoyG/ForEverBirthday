@@ -1,93 +1,150 @@
+/* General Page Styling */
 body {
     margin: 0;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #222;
-}
-
-.container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-}
-
-#movingImage {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-h1{
-    color:aqua
-}
-
-body {
-    text-align: center;
     font-family: Arial, sans-serif;
-    background-color: #222;
+    background-color: #1c1c1c;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
+/* Game Container */
 .game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    gap: 20px;
+    width: 90%;
+    max-width: 600px;
 }
-
-#bossImage {
-    width: 200px;
-    height: auto;
-    margin: 20px;
-}
-
-#sequence {
-    font-size: 2em;
-    font-weight: bold;
-    background-color: #ff3333;
-    padding: 10px;
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#message {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
 .health-bars {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.health-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.health-text {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 #bossHealthBar, #playerHealthBar {
-    width: 200px;
+    flex: 1;
     height: 20px;
     background-color: red;
     border: 2px solid white;
-    position: relative;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 10px;
 }
 
 #bossHealth, #playerHealth {
     width: 100%;
     height: 100%;
     background-color: limegreen;
-}
-.hidden {
-    display: none;
+    transition: width 0.3s ease-in-out;
 }
 
+
+/* Battle Area */
+.battle-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    gap: 20px;
+}
+
+/* Player & Boss Images */
+#playerImage, #bossImage {
+    width: 15vw;
+    max-width: 150px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#bossImage {
+    max-width: 200px;
+}
+
+/* Attack Animations */
+.attack {
+    transform: translateX(40px);
+}
+
+.boss-hit {
+    transform: scale(0.9);
+}
+
+/* Sequence & Typed Input */
+#sequence {
+    font-size: clamp(1.5em, 4vw, 2.5em);
+    background-color: #ff3333;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 10px rgba(255, 51, 51, 0.7);
+}
+
+#playerTyped {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: cyan;
+}
+
+/* Virtual Keyboard */
+#virtualKeyboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.key {
+    flex: 1;
+    min-width: 60px;
+    max-width: 120px;
+    font-size: 1.2em;
+    padding: 12px;
+    background: linear-gradient(180deg, #444, #222);
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.key:hover {
+    background: #555;
+}
+
+.key:active {
+    background: cyan;
+    transform: scale(0.95);
+}
+
+/* Victory Screen */
 #victoryScreen {
     position: fixed;
     top: 50%;
@@ -98,30 +155,121 @@ body {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 0px 10px white;
+    width: 80%;
+    max-width: 400px;
 }
-.battle-area {
+.hidden{
+    display: none;
+}
+.collection-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.items {
     display: flex;
     justify-content: center;
+    gap: 15px;
+}
+
+.collectible {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.collectible:hover {
+    transform: scale(1.2);
+}
+#tryAgainScreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px white;
+}
+
+#tryAgainScreen button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, gold, orange);
+    border: 2px solid white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+#tryAgainScreen button:hover {
+    background: orange;
+    transform: scale(1.05);
+}
+.hidden {
+    display: none;
+}
+
+#tryAgainScreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px white;
+}
+
+#tryAgainScreen button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, gold, orange);
+    border: 2px solid white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+#tryAgainScreen button:hover {
+    background: orange;
+    transform: scale(1.05);
+}
+
+.wheel-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 50px;
-    margin-top: 20px;
-    position: relative;
 }
 
-#playerImage {
-    width: 150px;
-    transition: transform 0.3s;
+canvas {
+    position: absolute;
 }
 
-#bossImage {
-    width: 200px;
-    transition: transform 0.3s;
+#spinButton {
+    margin-top: 320px;
+    font-size: 1.2em;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.attack {
-    transform: translateX(50px);
-}
-
-.boss-hit {
-    transform: scale(0.9);
+#spinButton:hover {
+    opacity: 0.8;
 }

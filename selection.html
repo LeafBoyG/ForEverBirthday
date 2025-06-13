@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Device</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="selection-screen">
+        <h1>Select Your Device</h1>
+        <button id="pcButton">PC (Keyboard)</button>
+        <button id="mobileButton">Mobile (Touchscreen)</button>
+    </div>
+    
+    <script>
+        document.getElementById("pcButton").addEventListener("click", () => {
+            localStorage.setItem("device", "pc");
+            window.location.href = "boss.html";
+        });
+
+        document.getElementById("mobileButton").addEventListener("click", () => {
+            localStorage.setItem("device", "mobile");
+            window.location.href = "boss.html";
+        });
+    </script>
+</body>
+</html>

@@ -17,6 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     startButton.addEventListener("click", () => {
-        window.location.href = "boss.html"; // Redirect to boss fight page
+        window.location.href = "selection.html"; // Redirect to boss fight page
     });
 });
