@@ -253,23 +253,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
 }
 
 canvas {
-    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 #spinButton {
-    margin-top: 320px;
-    font-size: 1.2em;
-    padding: 10px;
-    background: green;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #ff9800, #e65100);
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.1s;
 }
 
 #spinButton:hover {
-    opacity: 0.8;
+    background: #e65100;
+    transform: scale(1.05);
 }
