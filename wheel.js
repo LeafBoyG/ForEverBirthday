@@ -39,14 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (spinning) return;
 
         spinning = true;
-        let spins = 30;
-        let spinSpeed = 10;
+       let spins = 80; // More frames = longer duration
+let spinSpeed = 18; // Higher initial speed
+
         const finalAngle = Math.floor(Math.random() * 360); // Random final position
 
         function animateSpin() {
             if (spins > 0) {
                 angle += spinSpeed;
-                spinSpeed *= 0.98;
+                spinSpeed *= 0.99;
                 canvas.style.transform = `rotate(${angle}deg)`;
                 spins--;
                 requestAnimationFrame(animateSpin);
