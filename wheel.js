@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext("2d");
     const spinButton = document.getElementById("spinButton");
 
-    // Wheel Segments & Colors
-    const segments = ["Gold", "Silver", "Bronze", "Jackpot", "Bonus", "Mystery", "Ultra Rare"];
+    const segments = ["Gold", "Silver", "Bronze", "Jackpot", "Bonus", "Mystery", "Ultra Rare (0.1%)"];
     const colors = ["#FFD700", "#C0C0C0", "#CD7F32", "#FF5722", "#03A9F4", "#8E24AA", "#FF0000"];
     const numSegments = segments.length;
+
     let angle = 0;
     let spinning = false;
 
@@ -15,22 +15,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const segmentAngle = (2 * Math.PI) / numSegments;
 
         for (let i = 0; i < numSegments; i++) {
+            // Segment background
             ctx.beginPath();
             ctx.moveTo(200, 200);
             ctx.arc(200, 200, 180, i * segmentAngle, (i + 1) * segmentAngle);
             ctx.fillStyle = colors[i];
             ctx.fill();
-            ctx.strokeStyle = "white";
+            ctx.strokeStyle = "#fff";
             ctx.lineWidth = 2;
             ctx.stroke();
 
+            // Segment text
             ctx.save();
             ctx.translate(200, 200);
             ctx.rotate(i * segmentAngle + segmentAngle / 2);
-            ctx.fillStyle = "#FFF";
+            ctx.fillStyle = "#fff";
             ctx.font = "bold 18px Arial";
             ctx.textAlign = "center";
-            ctx.fillText(segments[i], 100, 10);
+            ctx.fillText(segments[i], 110, 10);
             ctx.restore();
         }
     }
@@ -39,24 +41,27 @@ document.addEventListener("DOMContentLoaded", () => {
         if (spinning) return;
 
         spinning = true;
-       let spins = 80; // More frames = longer duration
-let spinSpeed = 18; // Higher initial speed
+        let spins = 120;
+        let spinSpeed = 25;
 
-        const finalAngle = Math.floor(Math.random() * 360); // Random final position
+        const segmentSize = 360 / numSegments;
+        const ultraRareIndex = segments.length - 1;
+        const targetAngle = ultraRareIndex * segmentSize + segmentSize / 2;
+        const fullRotations = 5 * 360;
+        const finalAngle = fullRotations + targetAngle;
 
         function animateSpin() {
             if (spins > 0) {
                 angle += spinSpeed;
-                spinSpeed *= 0.99;
+                spinSpeed *= 0.985;
                 canvas.style.transform = `rotate(${angle}deg)`;
                 spins--;
                 requestAnimationFrame(animateSpin);
             } else {
                 spinning = false;
+                angle = finalAngle;
                 canvas.style.transform = `rotate(${finalAngle}deg)`;
-
-                const winningIndex = Math.floor((finalAngle % 360) / (360 / numSegments));
-                alert(`You won: ${segments[winningIndex]}!`);
+                alert(`🎉 You won: ${segments[ultraRareIndex]}!`);
             }
         }
 
