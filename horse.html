@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trail Trot</title>
+  <link rel="stylesheet" href="horse.css" />
+</head>
+<body>
+  <div id="shopZone">SHOP</div>
+  <div id="coinCounter">Coins: 0</div>
+
+  <div id="horseRider">
+    <img src="horse.png" class="horse" />
+    <img src="player.png" class="rider" />
+    <div id="trailEffect"></div>
+  </div>
+
+  <div id="shopUI">
+    <h2>🏪 Trail Shop</h2>
+    <p>Select your upgrades here!</p>
+
+    <h3>Coin Production Upgrades</h3>
+    <div class="shop-option">
+        <button id="spawnRateUpgradeBtn">Spawn Rate Upgrade (50 Coins)</button>
+    </div>
+    <div class="shop-option">
+        <button id="spawnBoostBtn">Initial Coin Boost (100 Coins)</button>
+    </div>
+
+
+    <h3>Basic Hues (Tier 1)</h3>
+    <div class="trail-option" data-color="red" data-price="10"><span>Red Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="blue" data-price="10"><span>Blue Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="green" data-price="10"><span>Green Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="yellow" data-price="10"><span>Yellow Trail</span><button>Buy</button></div>
+
+    <h3>Refined Shades (Tier 2)</h3>
+    <div class="trail-option" data-color="cyan" data-price="25"><span>Cyan Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="magenta" data-price="25"><span>Magenta Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="lime" data-price="25"><span>Lime Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="lavender" data-price="25"><span>Lavender Trail</span><button>Buy</button></div>
+
+    <h3>Deep Tones (Tier 3)</h3>
+    <div class="trail-option" data-color="darkviolet" data-price="75"><span>Deep Violet</span><button>Buy</button></div>
+    <div class="trail-option" data-color="darkgreen" data-price="75"><span>Emerald Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="darkblue" data-price="75"><span>Sapphire Trail</span><button>Buy</button></div>
+    <div class="trail-option" data-color="darkorange" data-price="75"><span>Warm Orange</span><button>Buy</button></div>
+    <div class="trail-option" data-color="white" data-price="100"><span>Subtle White</span><button>Buy</button></div>
+
+    <h3>Prestige (Tier 4)</h3>
+    <div class="trail-option" data-color="gold" data-price="250"><span>Golden Trail ✨</span><button>Buy</button></div>
+    <div class="trail-option" data-color="silver" data-price="200"><span>Silver Trail ✨</span><button>Buy</button></div>
+    <div class="trail-option" data-color="rebeccapurple" data-price="175"><span>Amethyst Trail ✨</span><button>Buy</button></div>
+    <div class="trail-option" data-color="lightblue" data-price="300"><span>Diamond Trail ✨</span><button>Buy</button></div>
+
+    <h3 class="secret-heading" style="display: none;">🌈 Secret Tier</h3>
+    <div class="trail-option secret-trail" data-color="linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet)" data-price="0" style="display: none;">
+      <span>🌈 Prism Trail – 0 Coins</span>
+      <button>Unlock</button>
+    </div>
+
+  </div>
+
+  <div id="saveLoadScreen" style="display: none;">
+    <h2>💾 Load / Save Game</h2>
+    <div class="save-slots-container">
+      <div class="save-slot" data-slot-id="0">
+        <h3>Slot 1</h3>
+        <p class="slot-info">Empty</p>
+        <div class="slot-buttons">
+          <button class="save-btn">Save</button>
+          <button class="load-btn">Load</button>
+        </div>
+      </div>
+      <div class="save-slot" data-slot-id="1">
+        <h3>Slot 2</h3>
+        <p class="slot-info">Empty</p>
+        <div class="slot-buttons">
+          <button class="save-btn">Save</button>
+          <button class="load-btn">Load</button>
+        </div>
+      </div>
+      <div class="save-slot" data-slot-id="2">
+        <h3>Slot 3</h3>
+        <p class="slot-info">Empty</p>
+        <div class="slot-buttons">
+          <button class="save-btn">Save</button>
+          <button class="load-btn">Load</button>
+        </div>
+      </div>
+    </div>
+    <button id="closeSaveLoadScreenBtn">Back to Game</button>
+  </div>
+
+  <script src="horse.js"></script>
+</body>
+</html>
