@@ -1,3 +1,5 @@
+/* wheel.css */
+
 body {
     background: #222;
     color: white;
@@ -36,4 +38,23 @@ canvas {
 #spinButton:hover {
     background: #e65100;
     transform: scale(1.05);
+}
+
+/* New styles for the link - button-like */
+#horseLink { /* Added an ID to the link in index.html for specific targeting */
+    margin-top: 15px;
+    font-size: 1em; /* Slightly smaller than spin button */
+    padding: 8px 18px; /* Smaller padding than spin button */
+    background: #444; /* Darker background */
+    color: white;
+    border: 1px solid #555; /* Subtle border */
+    cursor: pointer;
+    border-radius: 8px; /* Slightly smaller border-radius */
+    text-decoration: none; /* No underline */
+    transition: background 0.3s, transform 0.1s;
+}
+
+#horseLink:hover {
+    background: #555; /* Lighter background on hover */
+    transform: scale(1.03);
 }
